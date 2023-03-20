@@ -1,11 +1,11 @@
-About micropip
-==============
+About micropip-feedstock
+========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/micropip-feedstock/blob/main/LICENSE.txt)
 
 Home: https://pypi.org/project/micropip/
 
 Package license: MPL-2.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/micropip-feedstock/blob/main/LICENSE.txt)
 
 Summary: A lightweight Python package installer for the web
 
@@ -143,5 +143,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@jtpio](https://github.com/jtpio/)
 * [@yuvipanda](https://github.com/yuvipanda/)
 
