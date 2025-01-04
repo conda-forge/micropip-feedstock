@@ -1,3 +1,4 @@
+{% set python_min = '3.10' %}
 {% set name = "micropip" %}
 {% set version = "0.6.0" %}
 
@@ -6,20 +7,20 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/micropip-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/micropip-{{ version }}.tar.gz
   sha256: d53f6c2df634db4e960734209f337c2bd1e58d75dde310de7485a963c11bbed1
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.10
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.10
+    - python >={{ python_min }}
     # From https://github.com/pyodide/pyodide/blob/main/packages/micropip/meta.yaml#L16
     - packaging
     - pyparsing
@@ -32,6 +33,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://pypi.org/project/micropip/
