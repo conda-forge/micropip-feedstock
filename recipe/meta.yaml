@@ -1,6 +1,6 @@
-{% set python_min = '3.10' %}
+{% set python_min = "3.10" %}
 {% set name = "micropip" %}
-{% set version = "0.6.0" %}
+{% set version = "0.11.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,12 +8,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/micropip-{{ version }}.tar.gz
-  sha256: d53f6c2df634db4e960734209f337c2bd1e58d75dde310de7485a963c11bbed1
+  sha256: 9639ba9927d637b608ae18519b430009ead6a336f66b10095c7fdc64d38dd95e
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
