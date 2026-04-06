@@ -1,30 +1,30 @@
-{% set python_min = '3.10' %}
 {% set name = "micropip" %}
-{% set version = "0.6.0" %}
+{% set version = "0.8.0" %}
+{% set python_min = "3.12" %}
 
 package:
-  name: {{ name|lower }}
+  name: micropip
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/micropip-{{ version }}.tar.gz
-  sha256: d53f6c2df634db4e960734209f337c2bd1e58d75dde310de7485a963c11bbed1
+  url: https://pypi.org/packages/source/m/micropip/micropip-{{ version }}.tar.gz
+  sha256: 2ed086a2aa946434470a2831718360652b1acf3b85bca8be29fb048dd6169965
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
 
 requirements:
   host:
     - python {{ python_min }}
+    - setuptools >=42
+    - setuptools-scm >=6.2
+    - wheel
     - pip
   run:
-    - python >={{ python_min }}
-    # From https://github.com/pyodide/pyodide/blob/main/packages/micropip/meta.yaml#L16
-    - packaging
-    - pyparsing
-    - pyodide-py
+    - python >={{ python_min }},<4.0
+    - packaging >=23.0
 
 test:
   imports:
@@ -36,7 +36,7 @@ test:
     - python {{ python_min }}
 
 about:
-  home: https://pypi.org/project/micropip/
+  home: https://github.com/pyodide/micropip
   summary: A lightweight Python package installer for the web
   license: MPL-2.0
   license_file: LICENSE
@@ -44,4 +44,5 @@ about:
 extra:
   recipe-maintainers:
     - jtpio
+    - rxm7706
     - yuvipanda
