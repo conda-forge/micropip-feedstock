@@ -1,6 +1,6 @@
 {% set name = "micropip" %}
-{% set version = "0.8.0" %}
-{% set python_min = "3.12" %}
+{% set version = "0.11.1" %}
+{% set python_min = "3.13" %}
 
 package:
   name: micropip
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/m/micropip/micropip-{{ version }}.tar.gz
-  sha256: 2ed086a2aa946434470a2831718360652b1acf3b85bca8be29fb048dd6169965
+  sha256: 85ca3e96a7ffc63934b50d7dcc4a1875875d52b76e7ed3fe5e2bbe283e6562dc
 
 build:
   noarch: python
@@ -18,13 +18,11 @@ build:
 requirements:
   host:
     - python {{ python_min }}
-    - setuptools >=42
-    - setuptools-scm >=6.2
-    - wheel
+    - hatchling
+    - hatch-vcs
     - pip
   run:
     - python >={{ python_min }},<4.0
-    - packaging >=23.0
 
 test:
   imports:
@@ -36,10 +34,16 @@ test:
     - python {{ python_min }}
 
 about:
-  home: https://github.com/pyodide/micropip
+  home: https://pypi.org/project/micropip
+  dev_url: https://github.com/pyodide/micropip
+  doc_url: https://micropip.pyodide.org
   summary: A lightweight Python package installer for the web
-  license: MPL-2.0
-  license_file: LICENSE
+  license: Apache-2.0 AND BSD-2-Clause AND MPL-2.0
+  license_file:
+    - LICENSE
+    - micropip/_vendored/packaging/LICENSE
+    - micropip/_vendored/packaging/LICENSE.BSD
+    - micropip/_vendored/packaging/LICENSE.APACHE
 
 extra:
   recipe-maintainers:
