@@ -3,11 +3,15 @@ About micropip-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/micropip-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/pyodide/micropip
+Home: https://pypi.org/project/micropip
 
-Package license: MPL-2.0
+Package license: Apache-2.0 AND BSD-2-Clause AND MPL-2.0
 
 Summary: A lightweight Python package installer for the web
+
+Development: https://github.com/pyodide/micropip
+
+Documentation: https://micropip.pyodide.org
 
 Current build status
 ====================
